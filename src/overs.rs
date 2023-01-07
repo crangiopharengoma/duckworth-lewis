@@ -10,7 +10,7 @@ use crate::DuckworthLewisError;
 /// A struct that represents a length of overs. Can handle both whole number of overs
 /// and an incomplete number of overs
 ///
-/// Implements Sub, FromStr and TryFrom<f32>. If a float with more than 1 decimal point
+/// Implements `Sub`, `FromStr` and `TryFrom<f32>`. If a float with more than 1 decimal point
 /// is used (e.g. 37.37) this will truncate it and return 37.3. No constructor is exposed
 /// for partial overs, so using one of the conversion methdos is required.
 #[derive(Debug, Ord, PartialOrd, Eq, PartialEq, Clone)]

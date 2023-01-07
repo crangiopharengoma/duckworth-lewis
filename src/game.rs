@@ -11,6 +11,19 @@ use crate::table::DUCKWORTH_LEWIS_TABLE;
 const G50_FULL: f32 = 245.0;
 const G50_OTHER: f32 = 200.0;
 
+/// The relevant Grade of the teams involved in this match. Note that this is the teams grade not
+/// the match grade. That means that the the grade is the highest level that that team is eligible
+/// to play, not that the grade of the match being played.
+///
+/// For example, an ICC Full Member playing a warm up game against an invitational XI should still
+/// have a grade of ICC Full Member for the purposes of calculating the match grade
+///
+/// Changing the grade determines the 'G50' value - i.e. the total runs expected in an 'average'
+/// innings. The `CricketMatch` struct exposes a new_with_g_50 method that allows for some
+/// experimentation if desired.
+///
+/// Current ICC playing conditions only has two G50 values - one for ICC Full Member and First Class
+/// teams (245), one for all others (200).
 #[derive(Debug, Clone)]
 #[cfg_attr(feature = "ser", derive(Serialize, Deserialize))]
 #[cfg_attr(feature = "cli", derive(ValueEnum))]
@@ -23,6 +36,8 @@ pub enum Grade {
     ICCAssociateMember,
 }
 
+/// The innings that the match is in. As Duckworth Lewis is only relevant for limited overs matches
+/// (and Cricket Max is dead), this can never include a third or a fourth innings
 #[derive(Debug, Clone, Eq, PartialEq)]
 #[cfg_attr(feature = "ser", derive(Serialize, Deserialize))]
 #[cfg_attr(feature = "cli", derive(ValueEnum))]
@@ -31,6 +46,8 @@ pub enum Innings {
     Second,
 }
 
+/// Representation of a cricket match, used to hold the basic details of the match and the details
+/// of any interruptions that have occurred during the match
 #[cfg_attr(feature = "ser", derive(Serialize, Deserialize))]
 pub struct CricketMatch {
     length: Overs,
