@@ -1,0 +1,20 @@
+[package]
+name = "duckworth-lewis"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "dlc"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.0.32", optional = true, features = ["derive", "env"] }
+serde = { version = "1.0.152", features = ["derive"], optional = true }
+serde_json = { version = "1.0.91", optional = true }
+thiserror = "1.0.38"
+
+[features]
+cli = ["dep:clap", "ser"]
+ser = ["dep:serde", "dep:serde_json"]
