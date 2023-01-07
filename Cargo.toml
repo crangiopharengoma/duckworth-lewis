@@ -1,6 +1,6 @@
 [package]
 name = "duckworth-lewis"
-author = "Sam Rosenberg"
+authors = ["Sam Rosenberg"]
 version = "0.1.0"
 edition = "2021"
 description = "A calculator for determining targets for the team batting second in weather affected cricket matches using the Duckworth Lewis Standard Edition methodology"
