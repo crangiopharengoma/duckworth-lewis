@@ -5,6 +5,11 @@
 //! that I'm aware of) so I can't implement them here. Note that international
 //! cricket uses the Duckworth-Lewis-Stern method so the results from this lib
 //! won't match what you see on TV.
+//!
+//! # Features
+//! cli: Produces a binary that provides a command line interface for using the calculator
+//!
+//! ser: Allows the various objects in this crate to be de/serializable using Serde. Included if cli feature used
 
 use std::num::ParseIntError;
 
